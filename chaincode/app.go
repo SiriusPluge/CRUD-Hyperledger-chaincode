@@ -181,7 +181,7 @@ func (s *SmartContract) SetServiceStatus(ctx contractapi.TransactionContextInter
 }
 
 // setServiceStatus Для изменения статуса заявки с нужным uuid
-func (s *SmartContract) WithDrawService(ctx contractapi.TransactionContextInterface, typeServices, phone, status string) error {
+func (s *SmartContract) WithDrawService(ctx contractapi.TransactionContextInterface, typeServices, phone string) error {
 	// Создание композитного ключа
 	keyService, err := ctx.GetStub().CreateCompositeKey("service", []string{typeServices, phone})
 	if err != nil {
