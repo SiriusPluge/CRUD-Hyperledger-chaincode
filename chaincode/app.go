@@ -225,7 +225,7 @@ func (s *SmartContract) WithDrawService(ctx contractapi.TransactionContextInterf
 	if mspID != service.MspID && clientID != service.ClientID {
 		return fmt.Errorf("premission denied. mspID: %s not equal owner", mspID)
 	}
-	if service.Status != statusDelete {
+	if service.Status == statusDelete {
 		return fmt.Errorf("service request has already been deleted: %s", "DELETED")
 	}
 
