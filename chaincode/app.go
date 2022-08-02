@@ -180,7 +180,7 @@ func (s *SmartContract) SetServiceStatus(ctx contractapi.TransactionContextInter
 	return nil
 }
 
-// setServiceStatus Для изменения статуса заявки с нужным uuid
+// WithDrawService Для отзыва пользователем заявки с нужным uuid
 func (s *SmartContract) WithDrawService(ctx contractapi.TransactionContextInterface, typeServices, phone string) error {
 	// Создание композитного ключа
 	keyService, err := ctx.GetStub().CreateCompositeKey("service", []string{typeServices, phone})
@@ -245,8 +245,8 @@ func (s *SmartContract) WithDrawService(ctx contractapi.TransactionContextInterf
 	return nil
 }
 
-// setServiceStatus Для изменения статуса заявки с нужным uuid
-func (s *SmartContract) DeleteService(ctx contractapi.TransactionContextInterface, typeServices, phone, status string) error {
+// DeleteService Для удаления брокером заявки с нужным uuid
+func (s *SmartContract) DeleteService(ctx contractapi.TransactionContextInterface, typeServices, phone string) error {
 	// Создание композитного ключа
 	keyService, err := ctx.GetStub().CreateCompositeKey("service", []string{typeServices, phone})
 	if err != nil {
